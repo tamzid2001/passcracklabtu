@@ -3,7 +3,6 @@ import argparse
 import hashlib
 import time
 import os
-from passlib.apache import Apr1Crypt
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='MD5 Password Cracking Script')
@@ -26,8 +25,9 @@ def load_hashes(hashfile):
                 if not line or ':' not in line:
                     continue
                 username, hash_part = line.split(':', 1)
-                if hash_part.startswith('$apr1$'):
-                    hashes[username] = hash_part
+                # Assuming the hash is a standard MD5 hex digest
+                if len(hash_part) == 32 and all(c in '0123456789abcdefABCDEF' for c in hash_part):
+                    hashes[username] = hash_part.lower()
         return hashes
     except FileNotFoundError:
         print(f"ERROR: Hash file '{hashfile}' not found.")
@@ -43,14 +43,16 @@ def crack_md5(hashfile, wordlist):
         with open(wordlist, 'r', encoding='utf-8', errors='ignore') as wl:
             for line_number, password in enumerate(wl, 1):
                 password = password.strip()
+                md5_digest = hashlib.md5(password.encode('utf-8')).hexdigest()
+
                 for user, stored_hash in hashes.items():
-                    if user in cracked:
-                        continue
-                    if Apr1Crypt.verify(password, stored_hash):
+                    if user not in cracked and md5_digest == stored_hash:
                         cracked[user] = password
                         print(f"[+] Cracked: {user} => {password}")
-                        if len(cracked) == total_hashes:
-                            break
+
+                if len(cracked) == total_hashes:
+                    break
+
         end_time = time.time()
         print("\n=== Cracking Completed ===")
         print(f"Time taken: {end_time - start_time:.2f} seconds")
