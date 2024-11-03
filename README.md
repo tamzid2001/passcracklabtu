@@ -25,6 +25,14 @@ Hint: Enable Apple Virtualization if your MacOS is operating on an M1 or M2 chip
 Upon successful installation, you are all set for your assignment,
 below!
 
+Installing on Linux
+If you want to install the basic Git tools on Linux via a binary installer, you can generally do so through the package management tool that comes with your distribution. If you’re on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use dnf:
+
+$ sudo dnf install git-all
+If you’re on a Debian-based distribution, such as Ubuntu, try apt:
+
+$ sudo apt install git-all
+
 ## **Overview**
 
 Welcome to the **Password Cracking Lab**! The goal of this lab is to familiarize you with password files and some elementary password cracking schemes. Through hands-on exercises, you will learn about the security mechanisms in place for password management and understand the vulnerabilities associated with weak or common passwords.
