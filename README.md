@@ -1,5 +1,30 @@
 # Password Cracking Lab
 
+Assignment 1
+For this assignment, please submit a single pdf document that contains
+your answers and screenshots. Be sure to include your name and student
+id number in your document. Please submit your document with the
+following file name:
+Csci###_M0?_last name_ first letter of firstname.pdf
+E.g.: If your name is John Adams then you should submit
+csci330_M01_adams_j.pdf.
+Your objective for this assignment to perform several access control tasks on
+Linux machine. This will allow you to gain experience with virtualization, access
+control mechanisms, and the GNU/Linux environment. Whenever you are
+confused about how a command works, simply type "man command" to see
+the manual page for that program or command.
+For this lab you need to download Ubuntu Linux on your machine (i.e.,
+Windows or Mac).
+You can find online Installation resources.
+Note: for Mac users, please follow instructions based on intel, M1 or M2 chip
+on your machine.
+https://www.youtube.com/watch?v=O19mv1pe76M
+How To Install Ubuntu 22.10 On M1 or M2 Mac || RUN NEW
+Ubuntu On ANY Mac W/ Apple Silicon Using UTM
+Hint: Enable Apple Virtualization if your MacOS is operating on an M1 or M2 chip
+Upon successful installation, you are all set for your assignment,
+below!
+
 ## **Overview**
 
 Welcome to the **Password Cracking Lab**! The goal of this lab is to familiarize you with password files and some elementary password cracking schemes. Through hands-on exercises, you will learn about the security mechanisms in place for password management and understand the vulnerabilities associated with weak or common passwords.
