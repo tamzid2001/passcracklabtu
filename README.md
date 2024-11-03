@@ -62,7 +62,7 @@ Install python via terminal:
 sudo apt update && sudo apt install python3
 
 Download pass crack file:
-curl -O https://raw.githubusercontent.com/user/repository/branch/filename
+git clone https://github.com/tamzid2001/passcracklabtu.git
 
 Create a password file;
 htpasswd -sc htpasswd-me alice
