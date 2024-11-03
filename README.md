@@ -16,8 +16,6 @@ Welcome to the **Password Cracking Lab**! The goal of this lab is to familiarize
 8. [Scripts](#scripts)
 9. [Additional Notes](#additional-notes)
 
----
-
 ## **Getting Started**
 
 ### **A. Boot Your Linux System or VM**
@@ -25,30 +23,20 @@ Welcome to the **Password Cracking Lab**! The goal of this lab is to familiarize
 1. **Launch Labtainer VM**:
    - If you haven't already, start your Labtainer VM. The pre-packaged Labtainer VM will open with a terminal window.
 
-2. **Navigate to Lab Directory**:
-   - Open the terminal and change directory to `labtainer/labtainer-student`:
-     ```bash
-     cd labtainer/labtainer-student
-     ```
+Ubuntu Instruction 
 
-3. **Start the Lab**:
-   - Execute the following command to start the password cracking lab:
-     ```bash
-     labtainer pass-crack
-     ```
+Install python via terminal: 
+sudo apt update && sudo apt install python3
 
-4. **Access Lab Resources**:
-   - The terminal will display paths to two important files:
-     1. **This Lab Manual**
-     2. **The Lab Report Template**
-   - **Note**: On most Linux systems, these are symbolic links. You can right-click and select “Open Link” to access them.
+Download pass crack file:
+curl -O https://raw.githubusercontent.com/user/repository/branch/filename
 
-5. **Editing Lab Reports**:
-   - If you choose to edit the lab report on a different system, ensure you copy the completed report back to the displayed path on your Linux system before using `stoplab` to stop the lab.
+Create a password file;
+htpasswd -sc htpasswd-me alice
 
-**Note**: An appendix of basic Unix commands is provided at the end of this README for your reference.
+You can add other entries by doing the following (slightly modified) command:
+htpasswd -s htpasswd-me bob
 
----
 
 ## **Task 1: Password Files**
 
