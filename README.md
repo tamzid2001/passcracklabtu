@@ -141,7 +141,7 @@ In this task, you will briefly examine how your Linux system manages and stores 
 In this task, you will perform dictionary attacks to crack the contents of a password file.
 
 ### **Getting Started**
-
+In this case, please create the respective password files using different cryptography flags. You can find it in this link here: https://httpd.apache.org/docs/trunk/programs/htpasswd.html
 1. **View `htpasswd-sha1` File**:
    - Use the `cat` command:
      ```bash
