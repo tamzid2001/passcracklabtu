@@ -196,9 +196,9 @@ Compare the execution time of various hash functions.
    - **Task**:
      - **Item #12**: Record the number of words attempted, number of passwords cracked, and time taken.
 
-2. **Crack SHA512-Hashed Passwords**:
+2. **Crack SHA-Hashed Passwords**:
    ```bash
-   ./crack512.py htpasswd-sha512 biglist.txt
+   ./crackSHA.py htpasswd-sha biglist.txt
    ```
    - **Task**:
      - **Item #15**: Record the number of words attempted, number of passwords cracked, and time taken.
