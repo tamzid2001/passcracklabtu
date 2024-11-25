@@ -220,7 +220,7 @@ Experiment with your own passwords to understand the cracking process.
 
 3. **Perform Pre-Calculated Attack**:
    ```bash
-   ./crackPre.py htpasswd-me calc
+   ./crackPre.py htpasswd-me ./output
    ```
 4. **Task**:
    - **Item #20**: Record the results of your experiments without disclosing any actual passwords used.
@@ -321,11 +321,11 @@ A quick reference to basic Unix commands used throughout the lab:
 
 *Performs precomputed dictionary attacks using sorted hash files.*
 
-```python
-# [Include the `crackPre.py` script provided earlier]
+```
+sudo python3 ./crackPre.py htpasswd-me ./output
 ```
 
-### **4. `precompute.py`** *(Optional but Recommended)*
+### **4. `precompute.py`** *(Optional but Recommended)* The output filde is already provided to you as the output directory.
 
 *Precomputes and sorts SHA1 hashes from the wordlist into separate files based on the first two hex digits of each hash.*
 
