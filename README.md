@@ -64,12 +64,17 @@ sudo apt update && sudo apt install python3
 Download pass crack file:
 git clone https://github.com/tamzid2001/passcracklabtu.git
 
+Update your current file to be up to date:
+git pull
+
 Create a password file;
 htpasswd -sc htpasswd-me alice
 
+or for MD5:
+htpasswd -mc htpasswd-me alice
+
 You can add other entries by doing the following (slightly modified) command:
 htpasswd -s htpasswd-me bob
-
 
 ## **Task 1: Password Files**
 
