@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import argparse
-import hashlib
 import time
 import os
+import crypt  # Import the crypt module for password hashing
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='MD5 Password Cracking Script')
@@ -25,9 +25,8 @@ def load_hashes(hashfile):
                 if not line or ':' not in line:
                     continue
                 username, hash_part = line.split(':', 1)
-                # Assuming the hash is a standard MD5 hex digest
-                if len(hash_part) == 32 and all(c in '0123456789abcdefABCDEF' for c in hash_part):
-                    hashes[username] = hash_part.lower()
+                hash_part = hash_part.strip()
+                hashes[username] = hash_part
         return hashes
     except FileNotFoundError:
         print(f"ERROR: Hash file '{hashfile}' not found.")
@@ -38,15 +37,20 @@ def crack_md5(hashfile, wordlist):
     cracked = {}
     total_hashes = len(hashes)
     start_time = time.time()
+    total_attempts = 0
 
     try:
         with open(wordlist, 'r', encoding='utf-8', errors='ignore') as wl:
-            for line_number, password in enumerate(wl, 1):
+            for password in wl:
                 password = password.strip()
-                md5_digest = hashlib.md5(password.encode('utf-8')).hexdigest()
+                total_attempts += 1
 
                 for user, stored_hash in hashes.items():
-                    if user not in cracked and md5_digest == stored_hash:
+                    if user in cracked:
+                        continue
+
+                    # Use crypt.crypt to hash the password with the salt from stored_hash
+                    if crypt.crypt(password, stored_hash) == stored_hash:
                         cracked[user] = password
                         print(f"[+] Cracked: {user} => {password}")
 
@@ -56,7 +60,7 @@ def crack_md5(hashfile, wordlist):
         end_time = time.time()
         print("\n=== Cracking Completed ===")
         print(f"Time taken: {end_time - start_time:.2f} seconds")
-        print(f"Total attempts: {line_number}")
+        print(f"Total attempts: {total_attempts}")
         print(f"Passwords Cracked: {len(cracked)}/{total_hashes}")
 
     except FileNotFoundError:
