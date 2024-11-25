@@ -2,10 +2,10 @@
 import argparse
 import time
 import os
-from passlib.hash import sha512_crypt
+import crypt  # Built-in module on Unix-like systems
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='SHA-512 Password Cracking Script using passlib')
+    parser = argparse.ArgumentParser(description='SHA-512 Password Cracking Script')
     parser.add_argument('hashfile', help='Path to the hashed password file (htpasswd format)')
     parser.add_argument('wordlist', help='Path to the wordlist file')
     return parser.parse_args()
@@ -48,7 +48,10 @@ def crack_sha512(hashfile, wordlist):
                 for user, stored_hash in hashes.items():
                     if user in cracked:
                         continue
-                    if sha512_crypt.verify(password, stored_hash):
+
+                    # Use crypt.crypt to hash the password with the salt from stored_hash
+                    generated_hash = crypt.crypt(password, stored_hash)
+                    if generated_hash == stored_hash:
                         cracked[user] = password
                         print(f"[+] Cracked: {user} => {password}")
 
