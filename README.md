@@ -160,15 +160,6 @@ In this case, please create the respective password files using different crypto
 
 ### **Simple Dictionary Attack**
 
-Perform a simple dictionary attack using a small wordlist.
-
-1. **Execute `crackSHA.py` with `tinylist.txt`**:
-   ```bash
-   ./crackSHA.py htpasswd-sha1 tinylist.txt
-   ```
-2. **Task**:
-   - **Item #8**: Record the username(s) and password(s) of the accounts that were cracked.
-
 ### **Common Password Dictionary Attack**
 
 Use a larger wordlist to increase the chances of cracking more passwords.
@@ -196,14 +187,7 @@ Compare the execution time of various hash functions.
    - **Task**:
      - **Item #12**: Record the number of words attempted, number of passwords cracked, and time taken.
 
-2. **Crack SHA-Hashed Passwords**:
-   ```bash
-   ./crackSHA.py htpasswd-sha biglist.txt
-   ```
-   - **Task**:
-     - **Item #15**: Record the number of words attempted, number of passwords cracked, and time taken.
-
-3. **Speed Comparison Analysis**:
+2. **Speed Comparison Analysis**:
    - **Task**:
      - **Item #10**: Use recorded data to estimate the time required for a brute force attack on 15-character passwords using SHA1.
 
