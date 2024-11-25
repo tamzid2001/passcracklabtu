@@ -23,7 +23,7 @@ def precompute_hashes(wordlist, precomp_dir):
 
 def main():
     wordlist = 'biglist.txt'  # Replace with your wordlist path
-    precomp_dir = 'calc'      # Replace with your desired precomputed directory
+    precomp_dir = 'output'      # Replace with your desired precomputed directory
     precompute_hashes(wordlist, precomp_dir)
 
 if __name__ == "__main__":
