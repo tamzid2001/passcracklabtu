@@ -3,8 +3,6 @@ import argparse
 import time
 import os
 import hashlib
-import base64
-import struct
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='MD5 Password Cracking Script for Apache $apr1$ hashes')
@@ -102,14 +100,23 @@ def apr1_crypt(password, salt):
 
     # Reorder the bytes for final hash
     reordered = b''
-    for a, b in [(0, 6), (1, 7), (2, 8)]:
-        l = (final_result[a] << 16) | (final_result[b] << 8) | final_result[b + 9]
+    # Corrected indices based on Apache's implementation
+    indices = [
+        (0, 6, 12),
+        (1, 7, 13),
+        (2, 8, 14),
+        (3, 9, 15),
+        (4, 10, 5),
+        (11,)
+    ]
+
+    for idx in indices[:-1]:
+        a, b, c = idx
+        l = (final_result[a] << 16) | (final_result[b] << 8) | final_result[c]
         reordered += to64(l, 4).encode('utf-8')
-    l = (final_result[3] << 16) | (final_result[9] << 8) | final_result[15]
-    reordered += to64(l, 4).encode('utf-8')
-    l = (final_result[4] << 16) | (final_result[10] << 8) | final_result[5]
-    reordered += to64(l, 4).encode('utf-8')
-    l = final_result[11]
+
+    # Handle the last index separately
+    l = final_result[indices[-1][0]]
     reordered += to64(l, 2).encode('utf-8')
 
     return f'{magic}{salt}${reordered.decode("utf-8")}'
