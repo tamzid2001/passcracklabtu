@@ -63,6 +63,7 @@ sudo apt update && sudo apt install python3
 
 Install httpwssd:
 sudo apt install apache2-utils
+
 Download pass crack file:
 git clone https://github.com/tamzid2001/passcracklabtu.git
 
@@ -155,7 +156,7 @@ In this case, please create the respective password files using different crypto
 1. **View `htpasswd-sha1` File**:
    - Use the `cat` command:
      ```bash
-     cat htpasswd-sha1
+     cat htpasswd-me
      ```
    - **Observation**: This file is in htpasswd format, used by Apache for password-based access control.
 
