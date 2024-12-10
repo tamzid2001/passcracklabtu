@@ -61,8 +61,13 @@ Ubuntu Instruction
 Install python via terminal: 
 sudo apt update && sudo apt install python3
 
+Install httpwssd:
+sudo apt install apache2-utils
 Download pass crack file:
 git clone https://github.com/tamzid2001/passcracklabtu.git
+
+Goto the cloned repo:
+cd ./passcracklabtu
 
 Update your current file to be up to date:
 git pull
