@@ -166,7 +166,7 @@ Use a larger wordlist to increase the chances of cracking more passwords.
 
 1. **Execute `crackSHA.py` with `biglist.txt`**:
    ```bash
-   ./crackSHA.py htpasswd-sha1 biglist.txt
+   python3 ./crackSHA.py htpasswd-sha1 biglist.txt
    ```
 2. **Tasks**:
    - **Item #9**: Record the username(s) and password(s) of the accounts cracked using `biglist.txt`.
@@ -182,7 +182,7 @@ Compare the execution time of various hash functions.
 
 1. **Crack MD5-Hashed Passwords**:
    ```bash
-   ./crackMD5.py htpasswd-md5 biglist.txt
+   python3 ./crackMD5.py htpasswd-md5 biglist.txt
    ```
    - **Task**:
      - **Item #12**: Record the number of words attempted, number of passwords cracked, and time taken.
@@ -220,7 +220,7 @@ Experiment with your own passwords to understand the cracking process.
 
 3. **Perform Pre-Calculated Attack**:
    ```bash
-   ./crackPre.py htpasswd-me ./output
+   python3 ./crackPre.py htpasswd-me ./output
    ```
 4. **Task**:
    - **Item #20**: Record the results of your experiments without disclosing any actual passwords used.
